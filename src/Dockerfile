@@ -3,10 +3,8 @@ FROM python:3.7-alpine
 RUN pip install --upgrade pip
 RUN pip install django
 RUN mkdir /app
-WORKDIR /app
-RUN django-admin.py startproject MyProject
+COPY ./MyProject /app/MyProject
 WORKDIR /app/MyProject
-RUN python manage.py migrate
 
 EXPOSE 8000/tcp
 EXPOSE 8001/tcp
